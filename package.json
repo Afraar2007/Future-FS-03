@@ -3,6 +3,9 @@
   "private": true,
   "type": "module",
   "workspaces": ["orderly-eats"],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "npm --workspace orderly-eats run dev",
     "build": "npm --workspace orderly-eats run build",
