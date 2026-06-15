@@ -1,3 +1,15 @@
 {
-  "version": 2
+  "version": 2,
+  "builds": [
+    {
+      "src": "orderly-eats/dist/server/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "orderly-eats/dist/server/server.js"
+    }
+  ]
 }
