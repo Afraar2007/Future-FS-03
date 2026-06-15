@@ -4,7 +4,7 @@ import hero from "@/assets/hero-feast.jpg";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FoodCard } from "@/components/FoodCard";
-import { MENU } from "@/lib/menu";
+import { MENU } from "../lib/menu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,7 +59,11 @@ function Home() {
 
             <dl className="mt-10 grid grid-cols-3 gap-6 text-sm">
               <Stat icon={<Clock className="h-4 w-4" />} value="28 min" label="Avg. delivery" />
-              <Stat icon={<Star className="h-4 w-4 fill-current" />} value="4.8 / 5" label="12k ratings" />
+              <Stat
+                icon={<Star className="h-4 w-4 fill-current" />}
+                value="4.8 / 5"
+                label="12k ratings"
+              />
               <Stat icon={<Truck className="h-4 w-4" />} value="Free" label="over ₹25" />
             </dl>
           </div>
@@ -111,15 +115,29 @@ function Home() {
       {/* How it works */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] bg-foreground px-6 py-14 text-background sm:px-12">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">From our kitchen to your door</h2>
+          <h2 className="font-display text-3xl font-bold sm:text-4xl">
+            From our kitchen to your door
+          </h2>
           <p className="mt-2 max-w-xl text-background/70">
             Real chefs. Real ingredients. A frictionless order experience.
           </p>
           <ol className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              { n: "01", t: "Pick your dish", d: "Browse a tightly curated menu of signatures and weekly specials." },
-              { n: "02", t: "Checkout in seconds", d: "Saved address, saved card, one-tap reorder of past favourites." },
-              { n: "03", t: "Track live", d: "Watch your order from wok to wheel — no refresh needed." },
+              {
+                n: "01",
+                t: "Pick your dish",
+                d: "Browse a tightly curated menu of signatures and weekly specials.",
+              },
+              {
+                n: "02",
+                t: "Checkout in seconds",
+                d: "Saved address, saved card, one-tap reorder of past favourites.",
+              },
+              {
+                n: "03",
+                t: "Track live",
+                d: "Watch your order from wok to wheel — no refresh needed.",
+              },
             ].map((s) => (
               <li key={s.n} className="rounded-2xl border border-background/10 bg-background/5 p-6">
                 <div className="font-display text-3xl font-bold text-saffron">{s.n}</div>

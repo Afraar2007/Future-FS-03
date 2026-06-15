@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       /* ignore */
     }
-  }, []);
+  }, [user]);
 
   const value = useMemo<AuthContextValue>(
     () => ({

@@ -1,6 +1,6 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -105,13 +105,17 @@
   * {
     border-color: var(--color-border);
   }
-  html, body {
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .font-display {
+  h1,
+  h2,
+  h3,
+  .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -136,12 +140,26 @@
 }
 
 @keyframes float-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 oklch(0.62 0.22 27 / 0.5); }
-  100% { box-shadow: 0 0 0 18px oklch(0.62 0.22 27 / 0); }
+  0% {
+    box-shadow: 0 0 0 0 oklch(0.62 0.22 27 / 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 18px oklch(0.62 0.22 27 / 0);
+  }
 }
-.animate-float-up { animation: float-up 0.5s ease-out both; }
-.animate-pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+.animate-float-up {
+  animation: float-up 0.5s ease-out both;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}

@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ShoppingBag, UtensilsCrossed, User, Menu as MenuIcon, X } from "lucide-react";
 import { useState } from "react";
-import { useCart } from "@/lib/cart";
+import { useCart } from "../lib/cart";
 import { useAuth } from "@/lib/auth";
 
 const links: { to: string; label: string }[] = [

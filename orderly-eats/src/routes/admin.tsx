@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { DollarSign, ShoppingBag, TrendingUp, Users, Search, MoreHorizontal } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { useAuth } from "@/lib/auth";
-import { MENU } from "@/lib/menu";
-import { advanceOrderStatus, getOrders } from "@/lib/api/order.functions";
-import type { Order } from "@/lib/api/store.server";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { useAuth } from "../lib/auth";
+import { MENU } from "../lib/menu";
+import { advanceOrderStatus, getOrders } from "../lib/api/order.functions";
+import type { Order } from "../lib/api/store.server";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({ meta: [{ title: "Admin — Tandoor" }] }),
@@ -80,7 +80,8 @@ function AdminPage() {
           <h1 className="font-display text-4xl font-bold">Admin access required</h1>
           <p className="mt-3 text-muted-foreground">
             Sign in with an admin account (any email containing
-            <code className="mx-1 rounded bg-secondary px-1.5 py-0.5 text-sm">admin</code>) to view this dashboard.
+            <code className="mx-1 rounded bg-secondary px-1.5 py-0.5 text-sm">admin</code>) to view
+            this dashboard.
           </p>
           <Link
             to="/auth"
@@ -95,16 +96,17 @@ function AdminPage() {
   }
 
   const filtered = orders.filter((o) => {
-    return o.id.toLowerCase().includes(query.toLowerCase()) || o.customer.toLowerCase().includes(query.toLowerCase());
+    return (
+      o.id.toLowerCase().includes(query.toLowerCase()) ||
+      o.customer.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   const advance = async (id: string) => {
     try {
       const order = await advanceOrderStatus({ data: { id } });
       if (order) {
-        setOrders((prev) =>
-          prev.map((o) => (o.id === id ? toDisplay(order) : o)),
-        );
+        setOrders((prev) => prev.map((o) => (o.id === id ? toDisplay(order) : o)));
       }
     } catch {
       setOrders((prev) =>
@@ -124,7 +126,9 @@ function AdminPage() {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="text-sm uppercase tracking-widest text-primary">Dashboard</div>
-            <h1 className="font-display text-4xl font-bold sm:text-5xl">Good day, {user.name.split(" ")[0]}</h1>
+            <h1 className="font-display text-4xl font-bold sm:text-5xl">
+              Good day, {user.name.split(" ")[0]}
+            </h1>
           </div>
           <div className="text-sm text-muted-foreground">
             {new Date().toLocaleDateString(undefined, {
@@ -136,10 +140,30 @@ function AdminPage() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Kpi icon={<DollarSign className="h-4 w-4" />} label="Revenue today" value={`₹${stats.revenue.toFixed(2)}`} delta="+12%" />
-          <Kpi icon={<ShoppingBag className="h-4 w-4" />} label="Orders today" value={String(stats.orders)} delta="+4" />
-          <Kpi icon={<TrendingUp className="h-4 w-4" />} label="Avg. ticket" value={`₹${stats.avg.toFixed(2)}`} delta="+₹2.10" />
-          <Kpi icon={<Users className="h-4 w-4" />} label="Active orders" value={String(stats.active)} delta="live" />
+          <Kpi
+            icon={<DollarSign className="h-4 w-4" />}
+            label="Revenue today"
+            value={`₹${stats.revenue.toFixed(2)}`}
+            delta="+12%"
+          />
+          <Kpi
+            icon={<ShoppingBag className="h-4 w-4" />}
+            label="Orders today"
+            value={String(stats.orders)}
+            delta="+4"
+          />
+          <Kpi
+            icon={<TrendingUp className="h-4 w-4" />}
+            label="Avg. ticket"
+            value={`₹${stats.avg.toFixed(2)}`}
+            delta="+₹2.10"
+          />
+          <Kpi
+            icon={<Users className="h-4 w-4" />}
+            label="Active orders"
+            value={String(stats.active)}
+            delta="live"
+          />
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
@@ -176,7 +200,9 @@ function AdminPage() {
                       <td className="px-5 py-3 font-medium">{o.customer}</td>
                       <td className="px-5 py-3 text-muted-foreground">{o.items}</td>
                       <td className="px-5 py-3 font-semibold">₹{o.total.toFixed(2)}</td>
-                      <td className="px-5 py-3"><StatusPill status={o.status} /></td>
+                      <td className="px-5 py-3">
+                        <StatusPill status={o.status} />
+                      </td>
                       <td className="px-5 py-3 text-right">
                         <button
                           onClick={() => advance(o.id)}
@@ -251,7 +277,9 @@ function StatusPill({ status }: { status: OrderStatus }) {
     Delivered: "bg-success/15 text-success",
   };
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${map[status]}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${map[status]}`}
+    >
       <span className="h-1.5 w-1.5 rounded-full bg-current" /> {status}
     </span>
   );

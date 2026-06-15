@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useCallback, type FormEvent } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "../lib/auth";
 import { UtensilsCrossed } from "lucide-react";
 
 export const Route = createFileRoute("/auth")({
@@ -18,12 +18,15 @@ function AuthPage() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!email) return;
-    signIn(email, mode === "signup" ? name : undefined);
-    navigate({ to: "/" });
-  }, [email, name, mode, signIn, navigate]);
+  const onSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (!email) return;
+      signIn(email, mode === "signup" ? name : undefined);
+      navigate({ to: "/" });
+    },
+    [email, name, mode, signIn, navigate],
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -85,9 +88,7 @@ function AuthPage() {
               </div>
 
               <form onSubmit={onSubmit} className="space-y-4">
-                {mode === "signup" && (
-                  <Field label="Full name" value={name} onChange={setName} />
-                )}
+                {mode === "signup" && <Field label="Full name" value={name} onChange={setName} />}
                 <Field label="Email" type="email" value={email} onChange={setEmail} required />
                 <Field label="Password" type="password" value={password} onChange={setPassword} />
                 <button

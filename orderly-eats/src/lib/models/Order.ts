@@ -41,7 +41,7 @@ const OrderItemSchema = new Schema<IOrderItem>(
     qty: { type: Number, required: true, min: 1 },
     price: { type: Number, required: true, min: 0 },
   },
-  { _id: false }
+  { _id: false },
 );
 
 const OrderCustomerAddressSchema = new Schema<IOrderCustomerAddress>(
@@ -51,7 +51,7 @@ const OrderCustomerAddressSchema = new Schema<IOrderCustomerAddress>(
     village: { type: String, required: true },
     zip: { type: String, required: true },
   },
-  { _id: false }
+  { _id: false },
 );
 
 const OrderCustomerSchema = new Schema<IOrderCustomer>(
@@ -62,7 +62,7 @@ const OrderCustomerSchema = new Schema<IOrderCustomer>(
     address: { type: OrderCustomerAddressSchema, required: true },
     notes: { type: String },
   },
-  { _id: false }
+  { _id: false },
 );
 
 const OrderSchema = new Schema<IOrder>(
@@ -86,9 +86,8 @@ const OrderSchema = new Schema<IOrder>(
   },
   {
     timestamps: false,
-  }
+  },
 );
 
 export const OrderModel =
-  (mongoose.models.Order as mongoose.Model<IOrder>) ??
-  mongoose.model<IOrder>("Order", OrderSchema);
+  (mongoose.models.Order as mongoose.Model<IOrder>) ?? mongoose.model<IOrder>("Order", OrderSchema);

@@ -38,7 +38,7 @@ const MenuItemSchema = new Schema<IMenuItem>(
   },
   {
     timestamps: false,
-  }
+  },
 );
 
 export const MenuItemModel =

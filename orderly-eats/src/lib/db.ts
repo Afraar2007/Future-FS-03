@@ -75,7 +75,10 @@ export async function connectToDatabase(dbName?: string): Promise<typeof mongoos
       });
     } catch (err) {
       lastError = err;
-      console.warn("MongoDB: SRV connection failed, manually resolving DNS...", (err as Error).message);
+      console.warn(
+        "MongoDB: SRV connection failed, manually resolving DNS...",
+        (err as Error).message,
+      );
     }
   }
 

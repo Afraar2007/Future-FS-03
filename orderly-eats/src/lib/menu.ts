@@ -23,7 +23,8 @@ export const MENU: MenuItem[] = [
     id: "samosa",
     name: "Samosa",
     description: "Crisp pastry with spiced potato and peas.",
-    longDescription: "Hand-folded samosa with a flaky shell and fragrant potato-pea filling. Served with mint-coriander chutney.",
+    longDescription:
+      "Hand-folded samosa with a flaky shell and fragrant potato-pea filling. Served with mint-coriander chutney.",
     price: 10,
     image: generateAIImage("Samosa"),
     imageUrl: generateAIImage("Samosa"),
@@ -37,7 +38,8 @@ export const MENU: MenuItem[] = [
     id: "boratta",
     name: "Boratta",
     description: "Creamy burrata-style cheese with house bread.",
-    longDescription: "A soft, creamy cheese served with grilled bread, olive oil and a sprinkle of sea salt — a delicate, shareable starter.",
+    longDescription:
+      "A soft, creamy cheese served with grilled bread, olive oil and a sprinkle of sea salt — a delicate, shareable starter.",
     price: 15,
     image: generateAIImage("Boratta"),
     imageUrl: generateAIImage("Boratta"),
@@ -51,7 +53,8 @@ export const MENU: MenuItem[] = [
     id: "kuthu-boratta",
     name: "Kuthu Boratta",
     description: "Smoky spiced boratta twist.",
-    longDescription: "A house-spiced, slightly smoky take on boratta served with roasted spices and warm flatbread.",
+    longDescription:
+      "A house-spiced, slightly smoky take on boratta served with roasted spices and warm flatbread.",
     price: 130,
     image: generateAIImage("Kuthu Boratta"),
     imageUrl: generateAIImage("Kuthu Boratta"),
@@ -65,7 +68,8 @@ export const MENU: MenuItem[] = [
     id: "ombelet",
     name: "Ombelet",
     description: "Savory omelette with herbs and chilies.",
-    longDescription: "Fluffy omelette loaded with fresh herbs, green chilies and a dash of pepper — a comforting, savory bite.",
+    longDescription:
+      "Fluffy omelette loaded with fresh herbs, green chilies and a dash of pepper — a comforting, savory bite.",
     price: 20,
     image: generateAIImage("Ombelet"),
     imageUrl: generateAIImage("Ombelet"),
@@ -79,7 +83,8 @@ export const MENU: MenuItem[] = [
     id: "kala-vadai",
     name: "Kala Vadai",
     description: "Crisp lentil fritters with curry leaves.",
-    longDescription: "Deep-fried medu vadai-style fritters made from black gram with curry leaves and spices. Crunchy outside, soft inside.",
+    longDescription:
+      "Deep-fried medu vadai-style fritters made from black gram with curry leaves and spices. Crunchy outside, soft inside.",
     price: 10,
     image: generateAIImage("Kala Vadai"),
     imageUrl: generateAIImage("Kala Vadai"),
@@ -93,7 +98,8 @@ export const MENU: MenuItem[] = [
     id: "methu-vadai",
     name: "Methu Vadai",
     description: "Fenugreek-spiced vadai, aromatic and crisp.",
-    longDescription: "Vadai tempered with methi (fenugreek) and spices for an aromatic fritter perfect with chutney.",
+    longDescription:
+      "Vadai tempered with methi (fenugreek) and spices for an aromatic fritter perfect with chutney.",
     price: 10,
     image: generateAIImage("Methu Vadai"),
     imageUrl: generateAIImage("Methu Vadai"),
@@ -107,7 +113,8 @@ export const MENU: MenuItem[] = [
     id: "nice-dosa",
     name: "Nice Dosa",
     description: "Crispy dosa with spiced potato filling.",
-    longDescription: "Golden, crisp fermented dosa filled with spiced potato masala. Served with sambar and chutneys.",
+    longDescription:
+      "Golden, crisp fermented dosa filled with spiced potato masala. Served with sambar and chutneys.",
     price: 35,
     image: generateAIImage("Nice Dosa"),
     imageUrl: generateAIImage("Nice Dosa"),
@@ -121,7 +128,8 @@ export const MENU: MenuItem[] = [
     id: "sweet-bonda",
     name: "Sweet Bonda",
     description: "Sweet fried dumplings with jaggery and coconut.",
-    longDescription: "Lightly sweetened bonda made with jaggery and coconut, deep-fried until golden — a traditional sweet treat.",
+    longDescription:
+      "Lightly sweetened bonda made with jaggery and coconut, deep-fried until golden — a traditional sweet treat.",
     price: 10,
     image: generateAIImage("Sweet Bonda"),
     imageUrl: generateAIImage("Sweet Bonda"),

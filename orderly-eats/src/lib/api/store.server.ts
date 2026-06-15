@@ -57,9 +57,7 @@ const orders: Order[] = [
   {
     id: "TND-3LMQR",
     placedAt: Date.now() - 48 * 60 * 1000,
-    items: [
-      { id: "margherita-pizza", name: "Margherita Pizza", qty: 2, price: 12.0 },
-    ],
+    items: [{ id: "margherita-pizza", name: "Margherita Pizza", qty: 2, price: 12.0 }],
     total: 24.0,
     payMethod: "cash",
     status: "Cooking",

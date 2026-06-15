@@ -13,7 +13,7 @@ export function Footer() {
         <div className="text-sm">
           <div className="mb-3 font-semibold">Hours</div>
           <ul className="space-y-1 text-muted-foreground">
-            <li>Mon – Thu · 9:00  – 10:00</li>
+            <li>Mon – Thu · 9:00 – 10:00</li>
             <li>Fri – Sat · 9:00 – 11:00</li>
             <li>Sun · 9:00 – 10:00</li>
           </ul>

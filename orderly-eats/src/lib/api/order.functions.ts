@@ -1,6 +1,11 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { advanceOrder, createOrder, getOrder, getOrders as getOrdersFromStore } from "./store.server";
+import {
+  advanceOrder,
+  createOrder,
+  getOrder,
+  getOrders as getOrdersFromStore,
+} from "./store.server";
 
 export const placeOrder = createServerFn({ method: "POST" })
   .inputValidator(

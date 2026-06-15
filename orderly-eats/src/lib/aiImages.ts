@@ -36,7 +36,7 @@ function escapeXml(value: string) {
         return "&gt;";
       case "&":
         return "&amp;";
-      case "\"":
+      case '"':
         return "&quot;";
       case "'":
         return "&apos;";

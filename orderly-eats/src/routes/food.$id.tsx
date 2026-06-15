@@ -3,8 +3,8 @@ import { useState } from "react";
 import { ArrowLeft, Clock, Flame, Leaf, Minus, Plus, Star } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { getItem, MENU } from "@/lib/menu";
-import { useCart } from "@/lib/cart";
+import { getItem, MENU } from "../lib/menu";
+import { useCart } from "../lib/cart";
 import { FoodCard } from "@/components/FoodCard";
 
 export const Route = createFileRoute("/food/$id")({
@@ -93,7 +93,8 @@ function FoodDetail() {
             <div className="mt-3 flex items-center gap-4 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1">
                 <Star className="h-4 w-4 fill-saffron text-saffron" />
-                <span className="font-semibold text-foreground">{item.rating.toFixed(1)}</span> · 2.1k ratings
+                <span className="font-semibold text-foreground">{item.rating.toFixed(1)}</span> ·
+                2.1k ratings
               </span>
               <span className="inline-flex items-center gap-1">
                 <Clock className="h-4 w-4" /> {item.prepMinutes} min
@@ -106,7 +107,10 @@ function FoodDetail() {
 
             <div className="mt-6 flex flex-wrap gap-2">
               {item.tags.map((t: string) => (
-                <span key={t} className="rounded-full border border-border bg-card px-3 py-1 text-xs">
+                <span
+                  key={t}
+                  className="rounded-full border border-border bg-card px-3 py-1 text-xs"
+                >
                   {t}
                 </span>
               ))}

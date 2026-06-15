@@ -11,9 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { CartProvider } from "@/lib/cart";
-import { AuthProvider } from "@/lib/auth";
-import { Toaster } from "@/components/ui/sonner";
+import { CartProvider } from "../lib/cart";
+import { AuthProvider } from "../lib/auth";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -80,34 +80,51 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "\"TableTrack – Modern Restaurant Operations Platform\"." },
+      { title: '"TableTrack – Modern Restaurant Operations Platform".' },
       {
         name: "description",
         content:
           "Order from Tandoor — a modern kitchen serving slow-cooked classics and bold comfort food, delivered in 30 minutes or less.",
       },
-      { property: "og:title", content: "\"TableTrack – Modern Restaurant Operations Platform\"." },
+      { property: "og:title", content: '"TableTrack – Modern Restaurant Operations Platform".' },
       {
         property: "og:description",
         content: "Slow-cooked classics and modern comforts, delivered to your door.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "\"TableTrack – Modern Restaurant Operations Platform\"." },
-      { name: "description", content: `**DineFlow – Smart Restaurant Management System**
+      { name: "twitter:title", content: '"TableTrack – Modern Restaurant Operations Platform".' },
+      {
+        name: "description",
+        content: `**DineFlow – Smart Restaurant Management System**
 
     A modern restaurant platform for managing orders, menus, reservations, and customer experiences.
-    Streamlines` },
-      { property: "og:description", content: `**DineFlow – Smart Restaurant Management System**
+    Streamlines`,
+      },
+      {
+        property: "og:description",
+        content: `**DineFlow – Smart Restaurant Management System**
 
     A modern restaurant platform for managing orders, menus, reservations, and customer experiences.
-    Streamlines` },
-      { name: "twitter:description", content: `**DineFlow – Smart Restaurant Management System**
+    Streamlines`,
+      },
+      {
+        name: "twitter:description",
+        content: `**DineFlow – Smart Restaurant Management System**
 
     A modern restaurant platform for managing orders, menus, reservations, and customer experiences.
-    Streamlines` },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1781259022545-Screenshot_2026-06-12_153740.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1781259022545-Screenshot_2026-06-12_153740.webp" },
+    Streamlines`,
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1781259022545-Screenshot_2026-06-12_153740.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1781259022545-Screenshot_2026-06-12_153740.webp",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

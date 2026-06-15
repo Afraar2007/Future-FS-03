@@ -1,0 +1,19 @@
+
+> lint
+> eslint . ; echo EXIT:0
+
+
+Oops! Something went wrong! :(
+
+ESLint: 9.39.4
+
+No files matching the pattern ";" were found.
+Please check for typing mistakes in the pattern.
+
+npm error Lifecycle script `lint` failed with error:
+npm error code 2
+npm error path c:\PROJET3\orderly-eats
+npm error workspace tanstack_start_ts
+npm error location c:\PROJET3\orderly-eats
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c eslint . ; echo EXIT:0

@@ -2,11 +2,11 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { CreditCard, Wallet, Banknote } from "lucide-react";
 import { toast } from "sonner";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { useCart } from "@/lib/cart";
-import { useAuth } from "@/lib/auth";
-import { placeOrder } from "@/lib/api/order.functions";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { useCart } from "../lib/cart";
+import { useAuth } from "../lib/auth";
+import { placeOrder } from "../lib/api/order.functions";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({ meta: [{ title: "Checkout — Tandoor" }] }),
@@ -115,14 +115,31 @@ function CheckoutPage() {
             <Card title="Contact">
               <Grid>
                 <Field label="Full name" defaultValue={user?.name ?? ""} required name="name" />
-                <Field label="Email" type="email" defaultValue={user?.email ?? ""} required name="email" />
-                <Field label="Phone" type="tel" required name="phone" placeholder="+1 555 010 2042" />
+                <Field
+                  label="Email"
+                  type="email"
+                  defaultValue={user?.email ?? ""}
+                  required
+                  name="email"
+                />
+                <Field
+                  label="Phone"
+                  type="tel"
+                  required
+                  name="phone"
+                  placeholder="+1 555 010 2042"
+                />
               </Grid>
             </Card>
 
             <Card title="Delivery address">
               <Grid>
-                <Field label="Street address" required name="street" placeholder="42 Saffron Lane" />
+                <Field
+                  label="Street address"
+                  required
+                  name="street"
+                  placeholder="42 Saffron Lane"
+                />
                 <Field label="Apt / Suite" name="apt" />
                 <Field label="City" required name="city" placeholder="Brooklyn" />
                 <Field label="ZIP" required name="zip" placeholder="11201" />
@@ -137,9 +154,24 @@ function CheckoutPage() {
 
             <Card title="Payment">
               <div className="grid gap-3 sm:grid-cols-3">
-                <PayOption active={pay === "card"} onClick={() => setPay("card")} icon={<CreditCard className="h-4 w-4" />} label="Card" />
-                <PayOption active={pay === "wallet"} onClick={() => setPay("wallet")} icon={<Wallet className="h-4 w-4" />} label="Wallet" />
-                <PayOption active={pay === "cash"} onClick={() => setPay("cash")} icon={<Banknote className="h-4 w-4" />} label="Cash" />
+                <PayOption
+                  active={pay === "card"}
+                  onClick={() => setPay("card")}
+                  icon={<CreditCard className="h-4 w-4" />}
+                  label="Card"
+                />
+                <PayOption
+                  active={pay === "wallet"}
+                  onClick={() => setPay("wallet")}
+                  icon={<Wallet className="h-4 w-4" />}
+                  label="Wallet"
+                />
+                <PayOption
+                  active={pay === "cash"}
+                  onClick={() => setPay("cash")}
+                  icon={<Banknote className="h-4 w-4" />}
+                  label="Cash"
+                />
               </div>
               {pay === "card" && (
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -158,7 +190,11 @@ function CheckoutPage() {
             <ul className="mt-4 space-y-3 text-sm">
               {detailed.map(({ item, quantity, lineTotal }) => (
                 <li key={item.id} className="flex items-center gap-3">
-                  <img src={item.image} alt={item.name} className="h-12 w-12 rounded-lg object-cover" />
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-12 w-12 rounded-lg object-cover"
+                  />
                   <div className="min-w-0 flex-1">
                     <div className="truncate font-medium">{item.name}</div>
                     <div className="text-xs text-muted-foreground">× {quantity}</div>

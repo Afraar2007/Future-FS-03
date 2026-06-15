@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Plus, Star, Flame, Leaf } from "lucide-react";
-import type { MenuItem } from "@/lib/menu";
-import { useCart } from "@/lib/cart";
+import type { MenuItem } from "../lib/menu";
+import { useCart } from "../lib/cart";
 
 export function FoodCard({ item, index = 0 }: { item: MenuItem; index?: number }) {
   const { add } = useCart();

@@ -4,13 +4,16 @@ import { Search } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FoodCard } from "@/components/FoodCard";
-import { CATEGORIES, MENU, type Category } from "@/lib/menu";
+import { CATEGORIES, MENU, type Category } from "../lib/menu";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
       { title: "Menu — Tandoor" },
-      { name: "description", content: "Browse the full Tandoor menu — mains, starters, desserts, and drinks." },
+      {
+        name: "description",
+        content: "Browse the full Tandoor menu — mains, starters, desserts, and drinks.",
+      },
     ],
   }),
   component: MenuPage,

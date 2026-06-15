@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, ChefHat, Bike, PartyPopper } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 import { z } from "zod";
-import { getOrderById } from "@/lib/api/order.functions";
+import { getOrderById } from "../lib/api/order.functions";
 
 const search = z.object({ id: z.string().optional() });
 
@@ -53,11 +53,14 @@ function TrackPage() {
         try {
           const raw = window.localStorage.getItem("tandoor-last-order");
           if (raw) {
-            const o = JSON.parse(raw) as Order;
-            if (!id || o.id === id) {
+            const o = JSON.parse(raw) as Partial<Order>;
+            if (o.id && (!id || o.id === id)) {
               loaded = {
-                ...o,
-                status: (o as any).status ?? "New",
+                id: o.id,
+                placedAt: o.placedAt ?? Date.now(),
+                items: o.items ?? [],
+                total: o.total ?? 0,
+                status: typeof o.status === "string" ? o.status : "New",
               };
             }
           }
@@ -80,7 +83,9 @@ function TrackPage() {
 
   useEffect(() => {
     if (!order) return;
-    const initialStage = STAGES.findIndex((s) => s.key === order.status.toLowerCase().replace(/ /g, "-"));
+    const initialStage = STAGES.findIndex(
+      (s) => s.key === order.status.toLowerCase().replace(/ /g, "-"),
+    );
     setStage(initialStage >= 0 ? initialStage : 0);
     const t = setInterval(() => {
       setStage((s) => Math.min(STAGES.length - 1, s + 1));
@@ -95,7 +100,9 @@ function TrackPage() {
         {!order ? (
           <div className="rounded-3xl border border-dashed border-border bg-card p-12 text-center">
             <h1 className="font-display text-3xl font-bold">No active order</h1>
-            <p className="mt-2 text-muted-foreground">Place an order and we'll track it live here.</p>
+            <p className="mt-2 text-muted-foreground">
+              Place an order and we'll track it live here.
+            </p>
             <Link
               to="/menu"
               className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-pop"

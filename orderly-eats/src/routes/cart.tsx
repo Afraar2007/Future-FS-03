@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { useCart } from "@/lib/cart";
+import { useCart } from "../lib/cart";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({ meta: [{ title: "Cart — Tandoor" }] }),
@@ -55,7 +55,9 @@ function CartPage() {
                     <Link to="/food/$id" params={{ id: item.id }}>
                       <div className="truncate font-display text-lg font-semibold">{item.name}</div>
                     </Link>
-                    <div className="text-sm text-muted-foreground">₹{item.price.toFixed(2)} each</div>
+                    <div className="text-sm text-muted-foreground">
+                      ₹{item.price.toFixed(2)} each
+                    </div>
                     <button
                       onClick={() => remove(item.id)}
                       className="mt-1 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive"
@@ -89,10 +91,7 @@ function CartPage() {
               <h2 className="font-display text-xl font-bold">Order summary</h2>
               <dl className="mt-4 space-y-2 text-sm">
                 <Row label="Subtotal" value={`₹${subtotal.toFixed(2)}`} />
-                <Row
-                  label="Delivery"
-                  value={delivery === 0 ? "Free" : `₹${delivery.toFixed(2)}`}
-                />
+                <Row label="Delivery" value={delivery === 0 ? "Free" : `₹${delivery.toFixed(2)}`} />
                 <Row label="Tax" value={`₹${tax.toFixed(2)}`} />
                 <div className="my-2 border-t border-border" />
                 <Row label="Total" value={`₹${total.toFixed(2)}`} bold />
