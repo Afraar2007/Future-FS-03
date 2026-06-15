@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npm --workspace orderly-eats run dev",
     "build": "npm --workspace orderly-eats run build",
-    "preview": "npm --workspace orderly-eats run preview"
+    "preview": "npm --workspace orderly-eats run preview",
+    "vercel-build": "npm --workspace orderly-eats run build"
   },
   "dependencies": {
     "mongodb": "^7.3.0",
